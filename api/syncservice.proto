@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package api;
+
+service SyncServiceAPI {
+  // rpc RegisterEdgeNode;
+  rpc GetEdgeNode(GetEdgeNodeRequest) returns (GetEdgeNodeReply);
+  // rpc UpdateEdgeNode(EdgeNode) returns () {EdgeNode}
+  // rpc DeleteEdgeNode
+}
+
+message GetEdgeNodeRequest {
+  string node_name = 1;
+}
+
+message GetEdgeNodeReply {
+  EdgeNode edge_node = 1;
+}
+
+message EdgeNode {
+  string name = 1;
+  bool synced = 2;
+  repeated Pod pods = 3;
+}
+
+message Pod {
+  string key = 1;
+  bytes value = 2;
+}

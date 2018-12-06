@@ -1,0 +1,16 @@
+apiVersion: edge.k8s.io/v1alpha1
+kind: EdgeNode
+metadata:
+  name: edge01
+  namespace: default
+spec:
+  pods:
+    - apiVersion: v1
+      kind: Pod
+      metadata:
+        name: nginx
+      spec:
+        containers:
+          - name: nginx
+            image: nginx
+            imagePullPolicy: IfNotPresent
